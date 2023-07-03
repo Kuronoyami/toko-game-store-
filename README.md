@@ -27,37 +27,34 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+# Project Name
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+[Project Title]
 
-### Premium Partners
+## Description
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+[A brief description of your project]
 
-## Contributing
+## Inspiration from Source Code
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+This project is inspired by the [Full Stack Web Developer - Online Store](https://class.buildwithangga.com/kelas/full-stack-web-developer-toko-online) course from [BuildWithAngga](https://class.buildwithangga.com/). We would like to express our gratitude to BuildWithAngga for the provided course material and the inspiration we gained from the course.
 
-## Code of Conduct
+## Inspiration from Website Content
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The content and design of this website are inspired by [itemku](https://itemku.com/), an e-commerce platform. We have taken some design concepts and elements from itemku as a reference to develop this project.
 
-## Security Vulnerabilities
+## Features
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- [Feature 1]
+- [Feature 2]
+- [Feature 3]
+
+## Installation
+
+1. Clone this repository to your local directory.
+2. Run the command `npm install` to install dependencies.
+3. Configure the .env file with the appropriate settings.
+4. Run the command `npm start` to run the project.
 
 ## License
 
