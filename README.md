@@ -28,7 +28,9 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## GAMEKU
-
+<p align="center">
+<img src="public/images/gameku2.png" alt="Total Downloads" width="300px">
+</p>    
 ## Description
 
 This project is inspired by the itemku website (https://itemku.com/), an e-commerce platform. We would like to acknowledge and express our inspiration from the design concepts and elements found on the itemku website, which served as a reference during the development of this project.
