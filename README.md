@@ -33,9 +33,6 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 This project is inspired by the itemku website (https://itemku.com/), an e-commerce platform. We would like to acknowledge and express our inspiration from the design concepts and elements found on the itemku website, which served as a reference during the development of this project.
 
-## Disclaimer
-Please note that this project is intended for non-commercial use only. It is strictly prohibited to use this project or any derivative works for commercial purposes without obtaining proper authorization rights and licenses from the respective owners of the original content, including the itemku website. This project was created for personal study only.
-
 ## Inspiration from Source Code
 
 This project is inspired by the [Full Stack Web Developer - Online Store](https://class.buildwithangga.com/kelas/full-stack-web-developer-toko-online) course from [BuildWithAngga](https://class.buildwithangga.com/). We would like to express our gratitude to BuildWithAngga for the provided course material and the inspiration we gained from the course.
@@ -44,6 +41,8 @@ This project is inspired by the [Full Stack Web Developer - Online Store](https:
 
 The content and design of this website are inspired by [itemku](https://itemku.com/), an e-commerce platform. We have taken some design concepts and elements from itemku as a reference to develop this project.
 
+## Disclaimer
+Please note that this project is intended for non-commercial use only. It is strictly prohibited to use this project or any derivative works for commercial purposes without obtaining proper authorization rights and licenses from the respective owners of the original content, including the itemku website. This project was created for personal study only.
 ## Features
 
 - User registration and login: Allow users to create accounts and log in to access personalized features, such as saved addresses, order history, and wishlist.
