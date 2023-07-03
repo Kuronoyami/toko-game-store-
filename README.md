@@ -27,13 +27,14 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-# Project Name
-
-[Project Title]
+## GAMEKU
 
 ## Description
 
-[A brief description of your project]
+This project is inspired by the itemku website (https://itemku.com/), an e-commerce platform. We would like to acknowledge and express our inspiration from the design concepts and elements found on the itemku website, which served as a reference during the development of this project.
+
+## Disclaimer
+Please note that this project is intended for non-commercial use only. It is strictly prohibited to use this project or any derivative works for commercial purposes without obtaining proper authorization rights and licenses from the respective owners of the original content, including the itemku website. This project was created for personal study only.
 
 ## Inspiration from Source Code
 
@@ -45,9 +46,14 @@ The content and design of this website are inspired by [itemku](https://itemku.c
 
 ## Features
 
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- User registration and login: Allow users to create accounts and log in to access personalized features, such as saved addresses, order history, and wishlist.
+- Product catalog: Display a wide range of products with details such as images, descriptions, prices, and availability.Search functionality: Enable users to search for specific products based on keywords, categories, or filters.
+- Search functionality: Enable users to search for specific products based on keywords, categories, or filters.
+- Shopping cart: Provide a virtual shopping cart where users can add products, update quantities, and proceed to checkout.
+- Order tracking: Provide shipment tracking information to customers so they can monitor the progress of their orders.
+- Responsive design: Ensure the website is optimized for different devices and screen sizes, providing a seamless user experience.
+- Seller User: The Seller User feature allows registered users to become sellers on the platform and manage their own products and sales.
+- Super User: Super user is the one who can manage all transactions, products, and users.
 
 ## Installation
 
