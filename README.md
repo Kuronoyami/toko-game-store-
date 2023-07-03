@@ -30,7 +30,8 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ## GAMEKU
 <p align="center">
 <img src="public/images/gameku2.png" alt="Total Downloads" width="300px">
-</p>    
+</p> 
+
 ## Description
 
 This project is inspired by the itemku website (https://itemku.com/), an e-commerce platform. We would like to acknowledge and express our inspiration from the design concepts and elements found on the itemku website, which served as a reference during the development of this project.
@@ -56,13 +57,9 @@ Please note that this project is intended for non-commercial use only. It is str
 - Seller User: The Seller User feature allows registered users to become sellers on the platform and manage their own products and sales.
 - Super User: Super user is the one who can manage all transactions, products, and users.
 
-## Installation
-
-1. Clone this repository to your local directory.
-2. Run the command `npm install` to install dependencies.
-3. Configure the .env file with the appropriate settings.
-4. Run the command `npm start` to run the project.
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+**Note:** This project is inspired by the [Full Stack Web Developer - Toko Online](https://class.buildwithangga.com/class/full-stack-web-developer-toko-online) course from BuildWithAngga as well as content and design from [itemku]( https://itemku.com/) website. It is important to acknowledge the source of inspiration, but please note that this project is intended for non-commercial use only and for personal study only. Commercial use of this project or any derivative works without proper authorization is strictly prohibited.
