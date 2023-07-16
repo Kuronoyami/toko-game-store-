@@ -23,7 +23,7 @@
                 <div class="row">
                   <div class="col-12">
                     <a
-                      href="/dashboard/products/create"
+                      href="{{ route('dashboard-product-create') }}"
                       class="btn btn-primary"
                       >Add New Product</a
                     >
@@ -31,236 +31,31 @@
                 </div>
                 <div class="row mt-4">
 
-                  <!-- COBA STYLE -->
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
+                  @foreach ($products as $product)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    
+                    <a href="{{ route('dashboard-product-detail', $product->id) }}">
                       <div class="card-body">
                         <img
-                          src="/images/product-card-1.png"
+                          src="{{ Storage::url($product->galleries->first()->photos ?? '') }}"
                           alt=""
-                          class="w-100 mb-2"
+                          class="w-50 mb-2"
                         />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
+                        <div class="product-title judul-produk">{{ $product->name }}</div>
+                        <div class="product-category">{{ $product->category->name }}</div>
+                        {{-- <a
+                          href="/dashboard/products/create"
+                          class="btn btn-danger mt-2"
+                          >Delete</a
+                          > --}}
+                          </div>
                         </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
                     </div>
-                  </div>
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div
-                      class="card card-dashboard-product d-block"
-                    >
-                    <a href="/dashboard/products/1">
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-1.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title judul-produk">Shirup Marzzan</div>
-                        </a>
-                        <div class="product-category">Foods</div>
-                        <a
-                      href="/dashboard/products/create"
-                      class="btn btn-danger mt-2"
-                      >Delete</a
-                    >
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- COBA STYLE END -->
-
-
-
-                  <!-- STYLE DEFAULT -->
-                  {{-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a
-                      class="card card-dashboard-product d-block"
-                      href="/dashboard/products/1"
-                    >
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-2.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title">Shirup Marzzan</div>
-                        <div class="product-category">Foods</div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a
-                      class="card card-dashboard-product d-block"
-                      href="/dashboard/products/1"
-                    >
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-3.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title">Shirup Marzzan</div>
-                        <div class="product-category">Foods</div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a
-                      class="card card-dashboard-product d-block"
-                      href="/dashboard/products/1"
-                    >
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-4.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title">Shirup Marzzan</div>
-                        <div class="product-category">Foods</div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a
-                      class="card card-dashboard-product d-block"
-                      href="/dashboard/products/1"
-                    >
-                      <div class="card-body">
-                        <img
-                          src="/images/product-card-5.png"
-                          alt=""
-                          class="w-100 mb-2"
-                        />
-                        <div class="product-title">Shirup Marzzan</div>
-                        <div class="product-category">Foods</div>
-                      </div>
-                    </a>
-                  </div> --}}
+                  @endforeach
+                  
+                </div>
+                  
+                  
                 </div>
               </div>
             </div>

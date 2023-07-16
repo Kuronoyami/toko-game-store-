@@ -22,7 +22,18 @@
               <div class="dashboard-content">
                 <div class="row">
                   <div class="col-12">
-                    <form action="">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                      @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="{{ route('dashboard-product-store') }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
                       <div class="card">
                         <div class="card-body">
                           <div class="row">
@@ -34,7 +45,7 @@
                                   class="form-control"
                                   id="name"
                                   aria-describedby="name"
-                                  name="storeName"
+                                  name="name"
                                   value="Papel La Casa"
                                 />
                               </div>
@@ -57,12 +68,10 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="category">Category</label>
-                                <select
-                                  name="category"
-                                  id="category"
-                                  class="form-control"
-                                >
-                                  <option value="Furniture">Furniture</option>
+                                <select name="categories_id" class="form-control">
+                                  @foreach ($categories as $categories)
+                                    <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                                  @endforeach
                                 </select>
                               </div>
                             </div>
@@ -70,16 +79,8 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="description">Description</label>
-                                {{-- <textarea
-                                  name="descrioption"
-                                  id=""
-                                  cols="30"
-                                  rows="4"
-                                  class="form-control"
-                                >
-The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning
-                                </textarea> --}}
-                                <input id="description" type="hidden" name="description" value="The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning">
+                                
+                                <input id="description" type="hidden" name="description" value="">
                                 <trix-editor input="description"
                                 name="description"
                                 id=""
@@ -98,7 +99,7 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
                                   class="form-control pt-1"
                                   id="thumbnails"
                                   aria-describedby="thumbnails"
-                                  name="thumbnails"
+                                  name="photo"
                                 />
                                 <small class="text-muted">
                                   Kamu dapat memilih lebih dari satu file
@@ -112,7 +113,7 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
                         <div class="col">
                           <button
                             type="submit"
-                            class="btn btn-success btn-block px-5"
+                            class="btn btn-primary btn-block px-5"
                           >
                             Save Now
                           </button>

@@ -22,7 +22,18 @@
               <div class="dashboard-content">
                 <div class="row">
                   <div class="col-12">
-                    <form action="">
+                    @if ($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @endif
+                    <form action="{{ route('dashboard-product-update', $product->id) }}" method="POST" enctype="multipart/form-data"> 
+                      @csrf
+                      <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
                       <div class="card">
                         <div class="card-body">
                           <div class="row">
@@ -34,8 +45,8 @@
                                   class="form-control"
                                   id="name"
                                   aria-describedby="name"
-                                  name="storeName"
-                                  value="Papel La Casa"
+                                  name="name"
+                                  value="{{ $product->name }}"
                                 />
                               </div>
                             </div>
@@ -48,7 +59,7 @@
                                   id="price"
                                   aria-describedby="price"
                                   name="price"
-                                  value="200"
+                                  value="{{ $product->price }}"
                                 />
                               </div>
                             </div>
@@ -57,12 +68,11 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="category">Category</label>
-                                <select
-                                  name="category"
-                                  id="category"
-                                  class="form-control"
-                                >
-                                  <option value="Furniture">Furniture</option>
+                                <select name="categories_id" class="form-control">
+                                  <option value="{{ $product->categories_id }}">Tidak diganti {{ $product->category->name }}</option>
+                                  @foreach ($categories as $categories)
+                                    <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                                  @endforeach
                                 </select>
                               </div>
                             </div>
@@ -71,16 +81,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="description">Description</label>
-                                {{-- <textarea
-                                  name="description"
-                                  id=""
-                                  cols="30"
-                                  rows="4"
-                                  class="form-control"
-                                >
-The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning
-                                </textarea> --}}
-                              <input id="description" type="hidden" name="description" value="The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air unit yet for unimaginable, all-day comfort. There's super breathable fabrics on the upper, while colours add a modern edge. Bring the past into the future with the Nike Air Max 2090, a bold look inspired by the DNA of the iconic Air Max 90. Brand-new Nike Air cushioning">
+                              <input id="description" type="hidden" name="description" value="{{ $product->description }}">
                                 <trix-editor input="description"
                                 name="description"
                                 id=""
@@ -109,55 +110,39 @@ The Nike Air Max 720 SE goes bigger than ever before with Nike's tallest Air uni
                     <div class="card">
                       <div class="card-body">
                         <div class="row">
+                          @foreach ($product->galleries as $gallery)
                           <div class="col-md-4">
                             <div class="gallery-container">
                               <img
-                                src="/images/product-card-1.png"
+                                src="{{ Storage::url($gallery->photos ?? 'images\bgemptyproduct.png') }}"
                                 alt=""
                                 class="w-100"
                               />
-                              <a class="delete-gallery" href="#">
+                              <a class="delete-gallery" href="{{ route('dashboard-product-gallery-delete', $gallery->id) }}">
                                 <img src="/images/icon-delete.svg" alt="" />
                               </a>
                             </div>
                           </div>
-                          <div class="col-md-4">
-                            <div class="gallery-container">
-                              <img
-                                src="/images/product-card-2.png"
-                                alt=""
-                                class="w-100"
-                              />
-                              <a class="delete-gallery" href="#">
-                                <img src="/images/icon-delete.svg" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="gallery-container">
-                              <img
-                                src="/images/product-card-3.png"
-                                alt=""
-                                class="w-100"
-                              />
-                              <a class="delete-gallery" href="#">
-                                <img src="/images/icon-delete.svg" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col mt-3">
-                            <input
+                          @endforeach
+                          <div class="col-12 mt-3">
+                            <form action="{{ route('dashboard-product-gallery-upload') }}" method="POST" enctype="multipart/form-data">
+                              @csrf
+                              <input type="hidden" name="products_id" value="{{ $product->id }}">
+                              <input
                               type="file"
+                              name="photos"
                               id="file"
                               style="display: none;"
-                              multiple
+                              onchange="form.submit()"
                             />
                             <button
+                            type="button"
                               class="btn btn-secondary btn-block"
                               onclick="thisFileUpload();"
                             >
-                              Add Photo
+                            Tambah Foto
                             </button>
+                          </form>
                           </div>
                         </div>
                       </div>
