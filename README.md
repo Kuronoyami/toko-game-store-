@@ -36,7 +36,7 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Description
 
-This project is inspired by the itemku website (https://itemku.com/), an e-commerce platform. We would like to acknowledge and express our inspiration from the design concepts and elements found on the itemku website, which served as a reference during the development of this project.
+E-commerce application made specifically to facilitate easy and comfortable transaction of game items. To connect sellers and buyers of game items on the platform, so that users can sell or buy their favorite game items.
 
 ## Inspiration from Source Code
 
