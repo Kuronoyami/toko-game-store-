@@ -5,7 +5,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://laravel.com/docs/9.x"><img alt="Static Badge" src="https://img.shields.io/badge/Laravel-v9.39.0-blue?logo=laravel"></a>
 </p>
+
 
 ## About Laravel
 
