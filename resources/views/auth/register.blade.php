@@ -99,10 +99,10 @@
                                 <input
                                     type="radio"
                                     class="custom-control-input"
-                                    name="is_store_open"
+                                    name="store_status"
                                     id="openStoreTrue"
-                                    v-model="is_store_open"
-                                    :value="true"
+                                    v-model="store_status"
+                                    :value="1"
                                 />
                                 <label for="openStoreTrue" class="custom-control-label">
                                     Iya, boleh
@@ -114,17 +114,17 @@
                                 <input
                                     type="radio"
                                     class="custom-control-input"
-                                    name="is_store_open"
+                                    name="store_status"
                                     id="openStoreFalse"
-                                    v-model="is_store_open"
-                                    :value="false"
+                                    v-model="store_status"
+                                    :value="0"
                                 />
                                 <label for="openStoreFalse" class="custom-control-label">
                                     Enggak, makasih
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group" v-if="is_store_open">
+                        <div class="form-group" v-if="store_status">
                             <label>Nama Toko</label>
                             <input 
                                 v-model="store_name"
@@ -143,7 +143,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="form-group" v-if="is_store_open">
+                        <div class="form-group" v-if="store_status">
                             <label>Kategori</label>
                             <select name="categories_id" class="form-control">
                                 <option value="" disabled>Select Category</option>
@@ -225,9 +225,9 @@
         },
         data() {
           return {
-          name: "Angga Hazza Sett",
-          email: "kamujagoan@bwa.id",
-          is_store_open: true,
+          name: "Masukan Nama Kamu",
+          email: "game@game.co.id",
+          store_status: 0,
           store_name: "",
           email_unavailable: false
         }

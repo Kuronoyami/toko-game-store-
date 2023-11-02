@@ -69,7 +69,9 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/dashboard/transactions', [App\Http\Controllers\DashboardTransactionController::class, 'index'])->name('dashboard-transaction');
 
-    Route::get('/dashboard/transactions/{id}', [App\Http\Controllers\DashboardTransactionController::class, 'details'])->name('dashboard-transaction-details');
+    Route::get('/dashboard/transactions-buy/{id}', [App\Http\Controllers\DashboardTransactionController::class, 'detailsBuy'])->name('dashboard-transaction-details-buy');
+    
+    Route::get('/dashboard/transactions-sell/{id}', [App\Http\Controllers\DashboardTransactionController::class, 'detailsSell'])->name('dashboard-transaction-details-sell');
     
     Route::post('/dashboard/transactions/{id}', [App\Http\Controllers\DashboardTransactionController::class, 'update'])->name('dashboard-transaction-update');
 
@@ -77,7 +79,9 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/dashboard/account', [App\Http\Controllers\DashboardSettingController::class, 'account'])->name('dashboard-settings-account');
     
-    Route::post('/dashboard/account/{redirect}', [App\Http\Controllers\DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect');
+    /* Route::post('/dashboard/account/{redirect}', [App\Http\Controllers\DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect'); */
+    
+    Route::put('/dashboard/account/{redirect}', [App\Http\Controllers\DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect');
 
 });
 

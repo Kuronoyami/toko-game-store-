@@ -66,11 +66,15 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <img
-                  src="/images/icon-user.png"
-                  alt=""
-                  class="rounded-circle mr-2 profile-picture"
-                />
+                @if (Auth::user()->img_profile)
+                    <img id="profilePic" class="rounded-circle mr-2 profile-picture" src="{{ asset('storage/' . Auth::user()->img_profile) }}" style="object-fit:cover;">
+                @else
+                    <img
+                      src="{{ asset('images/bgemptyprofile.png') }}"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                @endif
                 Hi, {{ Auth::user()->name }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">

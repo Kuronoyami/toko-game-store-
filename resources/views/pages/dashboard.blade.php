@@ -65,7 +65,7 @@
                     @foreach ($transaction_data as $transaction)
                         <a
                       class="card card-list d-block"
-                      href="{{ route('dashboard-transaction-details', $transaction->id) }}">
+                      href="{{ route('dashboard-transaction-details-sell', $transaction->id) }}">
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-1">
@@ -74,10 +74,13 @@
                               class="w-75"
                             />
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-3">
                             {{ $transaction->product->name ?? '' }}
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-2 {{ $transaction->delivery_status === 'SUCCESS' ? 'text-success' : ($transaction->delivery_status === 'DELIVERY' ? 'text-primary' : 'text-danger') }}">
+                                {{ $transaction->delivery_status }}
+                              </div>
+                          <div class="col-md-2">
                             {{ $transaction->transaction->user->name ?? '' }}
                           </div>
                           <div class="col-md-3">

@@ -58,7 +58,7 @@
                         @foreach ($sellTransactions as $transaction)
                             <a
                           class="card card-list d-block"
-                          href="{{ route('dashboard-transaction-details', $transaction->id) }}"
+                          href="{{ route('dashboard-transaction-details-sell', $transaction->id) }}"
                         >
                           <div class="card-body">
                             <div class="row">
@@ -68,11 +68,14 @@
                                   class="w-50"
                                 />
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 {{ $transaction->product->name }}
                               </div>
-                              <div class="col-md-3">
-                                {{ $transaction->product->user->store_name }}
+                              <div class="col-md-2 {{ $transaction->delivery_status === 'SUCCESS' ? 'text-success' : ($transaction->delivery_status === 'DELIVERY' ? 'text-primary' : 'text-danger') }}">
+                                {{ $transaction->delivery_status }}
+                              </div>
+                              <div class="col-md-2">
+                                {{ $transaction->transaction->user->name }}
                               </div>
                               <div class="col-md-3">
                                 {{ $transaction->created_at }}
@@ -101,7 +104,7 @@
                         @foreach ($buyTransactions as $transaction)
                             <a
                           class="card card-list d-block"
-                          href="{{ route('dashboard-transaction-details', $transaction->id) }}"
+                          href="{{ route('dashboard-transaction-details-buy', $transaction->id) }}"
                         >
                           <div class="card-body">
                             <div class="row">
@@ -111,10 +114,13 @@
                                   class="w-50"
                                 />
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 {{ $transaction->product->name }}
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-2 {{ $transaction->delivery_status === 'SUCCESS' ? 'text-success' : ($transaction->delivery_status === 'DELIVERY' ? 'text-primary' : 'text-danger') }}">
+                                {{ $transaction->delivery_status }}
+                              </div>
+                              <div class="col-md-2">
                                 {{ $transaction->product->user->store_name }}
                               </div>
                               <div class="col-md-3">

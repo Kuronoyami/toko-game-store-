@@ -54,13 +54,16 @@
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="product-title">Payment Status</div>
-                                <div class="product-subtitle text-danger">
-                                  {{ $transaction->transaction->transaction_status }}
+                                <div class="product-subtitle {{ $transaction->delivery_status === 'SUCCESS' ? 'text-success' : ($transaction->delivery_status === 'DELIVERY' ? 'text-primary' : 'text-danger') }}">
+                                  {{-- {{ $transaction->transaction->transaction_status }} --}}
+                                  {{ $transaction->delivery_status }}
                                 </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="product-title">Total Amount</div>
-                                <div class="product-subtitle">@money($transaction->transaction->total_price)</div>
+                                <div class="product-subtitle">{{-- @money($transaction->transaction->total_price) --}}
+                                  @money($transaction->price)
+                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="product-title">Mobile</div>

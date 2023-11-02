@@ -13,8 +13,11 @@
 
     @stack('prepend-style')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/style/main.css" rel="stylesheet" />
+    <link href="/style/account-profile.css" rel="stylesheet" />
     <link href="/style/trix.css" rel="stylesheet" />
+    @include('includes.style')
     @stack('addon-style')
 
   </head>
@@ -95,11 +98,15 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <img
-                      src="/images/icon-user.png"
-                      alt=""
-                      class="rounded-circle mr-2 profile-picture"
-                    />
+                    @if (Auth::user()->img_profile)
+                        <img id="profilePic" class="rounded-circle mr-2 profile-picture" src="{{ asset('storage/' . Auth::user()->img_profile) }}">
+                    @else
+                        <img
+                          src="{{ asset('images/bgemptyprofile.png') }}"
+                          alt=""
+                          class="rounded-circle mr-2 profile-picture"
+                        />
+                    @endif
                     {{ Auth::user()->name }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -170,6 +177,7 @@
     @stack('prepend-script')
     <script src="/vendor/jquery/jquery.slim.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/script/trix.js"></script>
     <script>

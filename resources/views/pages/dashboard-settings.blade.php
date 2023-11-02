@@ -54,7 +54,7 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="is_store_open">Store Status</label>
+                                <label for="store_status">Store Status</label>
                                 <p class="text-muted">
                                   Apakah saat ini toko Anda buka?
                                 </p>
@@ -81,7 +81,7 @@
                                   <input
                                     class="custom-control-input"
                                     type="radio"
-                                    name="is_store_open"
+                                    name="store_status"
                                     id="openStoreFalse"
                                     value="0"
                                     {{ $user->store_status == 0 ||  $user->store_status == NULL ? 'checked' : '' }}

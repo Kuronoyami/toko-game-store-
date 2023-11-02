@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'store_name' => ['nullable', 'string', 'max:255'],
             'categories_id' => ['nullable', 'integer', 'exists:categories,id'],
-            'is_store_open' => ['required'],
+            'store_status' => ['required'],
         ]);
     }
 
@@ -88,7 +88,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'store_name' => isset($data['store_name']) ? $data['store_name'] : '',
             'categories_id' => isset($data['categories_id']) ? $data['categories_id'] : NULL,
-            'store_status' => isset($data['is_store_open']) ? 1 : 0,
+            'store_status' => isset($data['store_status']) && $data['store_status'] ? 1 : 0,
+
             /* 'metode_pembayaran' => 'NULL' */
         ]);
     }

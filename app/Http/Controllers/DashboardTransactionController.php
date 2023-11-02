@@ -18,12 +18,16 @@ class DashboardTransactionController extends Controller
         $sellTransactions = TransactionDetail::with(['transaction.user','product.galleries'])
             ->whereHas('product', function($product){
                 $product->where('users_id', Auth::user()->id);
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
         
         $buyTransactions = TransactionDetail::with(['transaction.user','product.galleries'])
             ->whereHas('transaction', function($transaction){
                 $transaction->where('users_id', Auth::user()->id);
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('pages.dashboard-transactions',[
             'sellTransactions' => $sellTransactions,
@@ -31,11 +35,20 @@ class DashboardTransactionController extends Controller
         ]);
     }
     
-    public function details(Request $request, $id)
+    public function detailsSell(Request $request, $id)
     {   
         $transaction = TransactionDetail::with(['transaction.user','product.galleries'])
             ->findOrFail($id);
-        return view('pages.dashboard-transactions-details',[
+        return view('pages.dashboard-transactions-details-sell',[
+            'transaction' => $transaction
+        ]);
+    }
+    
+    public function detailsBuy(Request $request, $id)
+    {   
+        $transaction = TransactionDetail::with(['transaction.user','product.galleries'])
+            ->findOrFail($id);
+        return view('pages.dashboard-transactions-details-buy',[
             'transaction' => $transaction
         ]);
     }
@@ -48,6 +61,6 @@ class DashboardTransactionController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('dashboard-transaction-details', $id);
+        return redirect()->route('dashboard-transaction', $id);
     }
 }
