@@ -59,6 +59,9 @@ Please note that this project is intended for non-commercial use only. It is str
 - Seller User: The Seller User feature allows registered users to become sellers on the platform and manage their own products and sales.
 - Super User: Super user is the one who can manage all transactions, products, and users.
 
+## Screenshots
+Soon..... :)
+
 
 ## License
 
