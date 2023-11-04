@@ -60,8 +60,38 @@ Please note that this project is intended for non-commercial use only. It is str
 - Super User: Super user is the one who can manage all transactions, products, and users.
 
 ## Screenshots
-Soon..... :)
 
+- Register Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/1cd0b3f8-172e-4e82-878e-1d7038e1b31a)
+
+- Login Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/2bbb13d8-17b9-4b95-b632-b84e12ae7fc8)
+  
+- Home Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/b4d8ebee-a89f-4786-994f-817567d68926)
+
+- Product List Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/f3707994-7470-4eea-ad1a-a617a5ec495c)
+
+- Product Detail Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/5b158408-dad6-4749-809a-a51f7c8f71e1)
+
+- Cart Page
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/850113b7-998c-47ab-b671-dfa3d39d3991)
+
+- Dashboard User Profile
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/44b9da65-7232-491a-9a01-45d0ee6dce32)
+
+- Dashboard User Transaction
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/fa0b06be-502c-4596-bcf5-e3af9c3b0fff)
+
+- Dashboard User Transaction Detail
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/d1fa7b7a-ae03-49f4-9988-594c00130a7f)
+
+- Dashboard User Open Store Option
+  ![image](https://github.com/AlvitoDian/GAMEKU-Game-E-Commerce/assets/132731944/28c2a486-65ac-4d34-84ee-3403192b9bbb)
+  
+soon...
 
 ## License
 
