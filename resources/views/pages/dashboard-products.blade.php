@@ -36,11 +36,19 @@
                     
                     <a href="{{ route('dashboard-product-detail', $product->id) }}">
                       <div class="card-body">
+                         @if (isset($product->galleries->first()->photos))
                         <img
-                          src="{{ Storage::url($product->galleries->first()->photos ?? '') }}"
+                          src="{{ Storage::url($product->galleries->first()->photos)}}"
                           alt=""
                           class="w-50 mb-2"
                         />
+                        @else
+                        <img
+                          src="{{ asset('images/bgemptyproduct.png') }}"
+                          alt=""
+                          class="w-50 mb-2"
+                        />
+                        @endif
                         <div class="product-title judul-produk">{{ $product->name }}</div>
                         <div class="product-category">{{ $product->category->name }}</div>
                         {{-- <a

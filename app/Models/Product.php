@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -38,6 +39,10 @@ class Product extends Model
 
     public function galleries(){
         return $this->hasMany(ProductGallery::class, 'products_id', 'id');
+    }
+    
+    public function review(){
+        return $this->hasMany(Review::class, 'products_id', 'id');
     }
     
     public function user(){

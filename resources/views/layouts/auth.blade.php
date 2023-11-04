@@ -20,7 +20,8 @@
 
   <body>
     <!-- Navbar -->
-    @include('includes.navbar-auth')
+    {{-- @include('includes.navbar-auth') --}}
+    @include('includes.navbar')
 
     <!-- Page Content -->
     @yield('content')

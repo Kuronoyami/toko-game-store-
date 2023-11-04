@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Review;
+use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class DetailController extends Controller
 {
@@ -17,8 +19,16 @@ class DetailController extends Controller
     public function index(Request $request, $id)
     {   
         $product = Product::with(['galleries','user','category'])->where('slug', $id)->firstOrFail();
+        $reviews = Review::with(['user', 'product'])
+        ->where('products_id', $product->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+        $reviewCount = $reviews->count();
+
         return view('pages.detail',[
-            'product' => $product
+            'product' => $product,
+            'reviews' => $reviews,
+            'reviewCount' => $reviewCount
         ]);
     }
 

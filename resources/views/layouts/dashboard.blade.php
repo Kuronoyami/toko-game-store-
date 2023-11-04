@@ -27,10 +27,11 @@
       <div class="d-flex" id="wrapper" data-aos="fade-right">
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
+          
           <div class="sidebar-heading text-center">
-            <img src="/images/gameku2.png" alt="" class="my-4 p-3" 
-            style="width: 200px; margin-top: -15px; margin-left: -21px"/>
+            <a href="/"><img src="/images/gameku2.png" alt="Logo Gameku" style="width: 200px; padding: 20px"/></a>
           </div>
+          
           <div class="list-group list-group-flush">
             <a
               href="/dashboard"

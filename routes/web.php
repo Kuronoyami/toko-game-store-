@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Models\Category;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\CategoryController;
 
 /*
@@ -36,6 +37,10 @@ Route::post('/details/{id}', [App\Http\Controllers\DetailController::class, 'add
 Route::get('/success', [App\Http\Controllers\CartController::class, 'success'])->name('success');
 
 Route::get('/register/success', [App\Http\Controllers\Auth\RegisterController::class, 'success'])->name('success');
+
+Route::get('/faq', function () {
+    return view('pages/faq');
+})->name('faq');
 
 
 
@@ -82,6 +87,8 @@ Route::group(['middleware' => ['auth']], function(){
     /* Route::post('/dashboard/account/{redirect}', [App\Http\Controllers\DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect'); */
     
     Route::put('/dashboard/account/{redirect}', [App\Http\Controllers\DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect');
+
+    Route::post('/review/{id}', [App\Http\Controllers\ReviewController::class, 'store'])->name('review-add');
 
 });
 

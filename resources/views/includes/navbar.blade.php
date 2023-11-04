@@ -30,10 +30,13 @@
               <a class="nav-link" href="{{ route('home') }}">Home </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('categories') }}">Categories</a>
+              <a class="nav-link" href="{{ route('categories') }}">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Rewards</a>
+              <a class="nav-link" href="#todoList">Top Up Voucher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#todoList">Rewards</a>
             </li>
 
             @guest 

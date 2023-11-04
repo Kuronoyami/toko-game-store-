@@ -32,6 +32,9 @@
 
     <!--Footer  -->
     @include('includes.footer')
+    
+    <!--CS Floating  -->
+    @include('includes.csfloating')
 
     <!-- Bootstrap core JavaScript -->
     @stack('prepend-script')

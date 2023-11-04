@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use App\Models\Cart;
+use App\Models\User;
+
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\TransactionCreated;
+
+use Illuminate\Support\Facades\Notification;
 
 
 class CheckoutController extends Controller
@@ -32,6 +36,8 @@ class CheckoutController extends Controller
             'code' => $code
         ]);
 
+        
+
         // Foreach Transaction Detail
         foreach ($carts as $cart) {
             $trx = 'TRX-' . mt_rand(000000,999999);
@@ -46,7 +52,47 @@ class CheckoutController extends Controller
                 'catatan'=> Auth::user()->catatan_beli,
                 'metode_bayar'=> Auth::user()->metode_pembayaran
             ]);
+
+            $sellerIds[] = $cart->product->users_id;
         }
+        
+
+        $detailToSeller = [
+            'greeting' => 'Terdapat Transaksi Cuy',
+            'body' => 'Ini pembayaranmu',
+            'actiontext' => 'Ini Isinya',
+            'actionurl' => '/',
+            'lastline' => 'Footer'
+        ];
+        
+        $detailToBuyyer = [
+            'greeting' => 'Transaksimu Sukses Cuy',
+            'body' => 'Ini pembayaranmu',
+            'actiontext' => 'Ini Isinya',
+            'actionurl' => '/',
+            'lastline' => 'Footer'
+        ];
+
+        // Send Email to Multi Seller
+        foreach ($sellerIds as $sellerId) {
+            $seller = User::find($sellerId);
+            /* $sellers[] = $seller; */
+            Notification::route('mail', [
+                $seller->email => $seller->name,
+            ])->notify(new TransactionCreated($detailToSeller));
+            /* Notification::send($seller, new TransactionCreated($details)); */
+        }
+
+        // Send Mail to Buyyer
+        Notification::route('mail', [
+                Auth::user()->email => Auth::user()->name,
+            ])->notify(new TransactionCreated($detailToBuyyer));
+
+        /* dd('Done!'); */
+
+        /* dd($sellers); */
+
+        /* dd('Terkirim!'); */
 
         // Delete Cart Data
         Cart::where('users_id', Auth::user()->id)->delete();

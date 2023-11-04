@@ -55,6 +55,7 @@
                   >
                     <div class="row mt-3">
                       <div class="col-12 mt-2">
+                        @if (Auth::user()->store_status == 1)
                         @foreach ($sellTransactions as $transaction)
                             <a
                           class="card card-list d-block"
@@ -90,6 +91,9 @@
                           </div>
                         </a>
                         @endforeach
+                        @else
+                        Belum Buka Toko
+                        @endif
                       </div>
                     </div>
                   </div>
