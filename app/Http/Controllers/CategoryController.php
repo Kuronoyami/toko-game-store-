@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Review;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -22,7 +23,27 @@ class CategoryController extends Controller
         }
 
         $categories = Category::all();
-        $products = Product::with(['galleries'])->filter(request(['search','category']))->latest()->paginate(8)->withQueryString();
+
+        $products = Product::with(['galleries','review','user'])->filter(request(['search','category']))->latest()->paginate(8)->withQueryString();
+
+
+       /*  $totalSumOfRates = 0;
+
+        foreach ($products as $product) {
+            $totalSumOfRates = $product->review->pluck('rate')->flatten()->sum();
+            $countSumOfRates = $product->review->pluck('rate')->flatten()->count();
+            $result = $totalSumOfRates / $countSumOfRates;
+            dd($result);
+        } */
+
+        /* dd($totalSumOfRates); */
+
+        
+        
+/* $totalSumOfRates = $products->pluck('review.*.rate')->flatten()->sum();
+
+dd($totalSumOfRates); */
+
         return view('pages.category',[
             'categories' => $categories,
             'products' => $products,

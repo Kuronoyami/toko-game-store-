@@ -6,6 +6,31 @@
 
 @section('content')
 
+<style>
+  
+.starrating-profile > label:before { 
+  content: "\f005";
+  margin: 2px;
+  font-size: 1.5em;
+  font-family: FontAwesome;
+  display: inline-block; 
+  font-size: 15px;
+}
+
+.starrating-profile > label
+{
+  color: #007BFF; /* Start color when not clicked */
+}
+
+.starOnProfile{
+  color: #007BFF !important;
+}
+
+.starrating-profile {
+  pointer-events: none;
+}
+
+</style>
   
 <div class="page-content page-categories">
     <div class="container">
@@ -114,7 +139,23 @@
                   ></div>
                 </div>
                 <div class="products-text">{{ $product->name }}</div>
+                <div style="font-size: 13px; color:rgb(163, 163, 163)">{{ $product->user->store_name }}</div>
+                <div class="starrating-profile risingstar d-flex justify-content-start no-pointer"> 
+                  <label for="star1" title="1 star" class="starOnProfile d-inline" style="display: flex;"><h6 class="d-inline" style="font-size: 14px">
+                    @php
+                    if ($product->review->pluck('rate')->isNotEmpty() && $product->review->pluck('rate')->sum() !== 0){
+                      $totalSumOfRates = $product->review->pluck('rate')->flatten()->sum();
+                      $countSumOfRates = $product->review->pluck('rate')->flatten()->count();
+                      $results = $totalSumOfRates / $countSumOfRates;
+                      $rateResults = number_format($results, 1);
+                    } else {
+                      $rateResults = $rate = number_format(0, 1);
+                    }
+                    @endphp
+                    {{ $rateResults }} / 5.0</h6></label>
+                </div>
                 <div class="products-price">@money($product->price){{-- {{ $product->price }} --}}</div>
+                
               </a>
             </div>
             @empty

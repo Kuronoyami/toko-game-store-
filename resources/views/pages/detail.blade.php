@@ -40,11 +40,6 @@
 
 /* ======================================================================== */
 
-
-
- /* Remove radio buttons */
-
-
 .starrating-no-hover > label:before { 
   content: "\f005";
   margin: 2px;
@@ -73,11 +68,7 @@
 
 /* ======================================================================== */
 
-
- /* Remove radio buttons */
-
-
-.starrating-bg > label:before { 
+.starrating-profile > label:before { 
   content: "\f005";
   margin: 2px;
   font-size: 1.5em;
@@ -85,14 +76,16 @@
   display: inline-block; 
 }
 
-.starrating-bg > label
+.starrating-profile > label
 {
-  color: #636363; /* Start color when not clicked */
+  color: #007BFF; /* Start color when not clicked */
 }
 
+.starOnProfile{
+  color: #007BFF !important;
+}
 
-
-.starrating-bg {
+.starrating-profile {
   pointer-events: none;
 }
 
@@ -169,7 +162,10 @@
                 <h1>{{ $product->name }}</h1>
                 <div class="owner">{{ $product->category->name }}</div>
                 
-                <h5>Deskripsi Produk</h5>
+                <h5>Deskripsi Produk</h5> 
+                <div class="starrating-profile risingstar d-flex justify-content-start no-pointer">
+                  <label for="star1" title="1 star" class="starOnProfile d-inline" style="display: flex;"><h6 class="d-inline mb-5" style="align-items: center;">{{ $rate }} / 5.0</h6></label> 
+                </div>
 
                 
                 <h6 class="mt-2">{!! $product->description !!}</h6>
@@ -228,12 +224,23 @@
                 <ul class="list-unstyled">
                   @foreach($reviews as $review)
                   <li class="media mb-3">
+                    @if($review->user->img_profile)
                     <img
                       src="{{ asset('storage/' . $review->user->img_profile) }}"
                       class="mr-3 rounded-circle"
                       alt=""
                       style="object-fit:cover;"
                     />
+                    @else
+                    <img
+                      src="{{ asset('images/bgemptyprofile.png') }}"
+                      class="mr-3 rounded-circle"
+                      alt=""
+                      style="object-fit:cover;
+                      width: 45px;
+                      height: 45px;"
+                    />
+                    @endif
                     <div class="media-body">
                       <div class="d-inline">
                         <h5 class="mt-2 mb-1">{{ $review->user->name }}</h5> 
